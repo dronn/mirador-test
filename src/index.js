@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import mirador from "mirador";
 import settings from './settings';
 
-// import { miradorImageToolsPlugin } from 'mirador-image-tools';
+import { miradorImageToolsPlugin } from 'mirador-image-tools';
 
 
 
@@ -21,21 +21,7 @@ class Mirador extends Component {
 export default Mirador;
 
 ReactDOM.render(
-    <Mirador config={{
-            id: 'demo',
-            windows: [{
-                imageToolsEnabled: true,
-                manifestId: 'https://purl.stanford.edu/sn904cj3429/iiif/manifest',
-            }],
-            theme: {
-                palette: {
-                    primary: {
-                        main: '#1967d2',
-                    },
-                },
-            },
-        }} 
-        
-        plugins={[]} />,
+    <Mirador config={settings} 
+        plugins={[miradorImageToolsPlugin, ]} />,
     document.getElementById("root")
 );
