@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import mirador from "mirador";
 import settings from './settings';
 
+import miradorDownloadPlugin from 'mirador-dl-plugin/es/miradorDownloadPlugin';
+import MiradorDownloadDialog from 'mirador-dl-plugin/es/MiradorDownloadDialog';
 import { miradorImageToolsPlugin } from 'mirador-image-tools';
 
 
@@ -22,6 +24,7 @@ export default Mirador;
 
 ReactDOM.render(
     <Mirador config={settings} 
-        plugins={[miradorImageToolsPlugin, ]} />,
+        plugins={[miradorImageToolsPlugin, miradorDownloadPlugin,
+        MiradorDownloadDialog]} />,
     document.getElementById("root")
 );
