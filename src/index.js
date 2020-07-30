@@ -1,17 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ReactDOM from "react-dom";
+import React, { Component } from "react";
+import mirador from "mirador";
+import settings from './settings';
+
+// import { miradorImageToolsPlugin } from 'mirador-image-tools';
+
+
+
+class Mirador extends Component {
+    componentDidMount() {
+        const { config, plugins } = this.props;
+        mirador.viewer(config, plugins);
+    }
+    render() {
+        const { config } = this.props;
+        return <div id={config.id} />;
+    }
+}
+
+export default Mirador;
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Mirador config={{
+            id: 'demo',
+            windows: [{
+                imageToolsEnabled: true,
+                manifestId: 'https://purl.stanford.edu/sn904cj3429/iiif/manifest',
+            }],
+            theme: {
+                palette: {
+                    primary: {
+                        main: '#1967d2',
+                    },
+                },
+            },
+        }} 
+        
+        plugins={[]} />,
+    document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
