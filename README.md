@@ -1,3 +1,7 @@
+Readme is based on Create React App template. 
+
+To start project locally, run `npm start`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
